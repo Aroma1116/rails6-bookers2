@@ -9,6 +9,14 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true)
+  end
+
+  def search
+    @book = Book.new
+    @q = Book.ransack(search_params)
+    @books = @q.result(distinct: true)
   end
 
   def create
@@ -45,6 +53,10 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
   def ensure_corret_user
