@@ -1,3 +1,4 @@
+
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
@@ -11,6 +12,14 @@
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "email" %>
+        </div>
+        <div class="field">
+          <%= f.label :postal_code %><br />
+          <%= f.text_field :postal_code, autofocus: true, id: "user_postcode" %>
+        </div>
+        <div>
+          <%= f.label :address %><br />
+          <%= f.text_field :address, autofocus: true, id: "user_address", size: "50x30" %>
         </div>
         <div class="field">
           <%= f.label :password %>

@@ -87,6 +87,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -96,6 +100,7 @@ GEM
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -103,6 +108,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jp_prefecture (1.1.1)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -247,9 +253,12 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  dotenv-rails
   factory_bot_rails
   faker
+  geocoder
   jbuilder (~> 2.7)
+  jp_prefecture
   listen (~> 3.3)
   net-smtp
   puma (~> 5.0)
