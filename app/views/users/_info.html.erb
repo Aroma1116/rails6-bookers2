@@ -19,7 +19,7 @@
   </tr>
   <% end %>
 </table>
-
+<% if user == current_user %>
 <script type="text/javascript">
   function initMap() {
 // #latitude,longitudeから位置を特定
@@ -53,15 +53,15 @@
 <!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
 <style type="text/css">
   #map { height: 200px;
-         width: 70%;}
+         width: 100%;}
 </style>
 
 <!--#mapの表示-->
 <div id="map"></div>
-
+<% end %>
 
 <div class='row'>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block", data: {"turbolinks" => false} do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 </div>
