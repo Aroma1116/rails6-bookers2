@@ -10,6 +10,14 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @book = Book.new
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
+
+  def search
+    @book = Book.new
+    @q = User.ransack(search_params)
+    @users = @q.result(distinct: true)
   end
 
   def edit
@@ -28,6 +36,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
   def ensure_correct_user
