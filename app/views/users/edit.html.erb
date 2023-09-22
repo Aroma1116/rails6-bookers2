@@ -16,6 +16,14 @@
         <%= f.label :introduction %>
         <%= f.text_area :introduction, class: "form-control introduction" %>
       </div>
+       <div class="form-group">
+        <%= f.label :postal_code %>
+        <%= f.text_area :postal_code, class: "form-control postal_code", id: "user_postcode" %>
+      </div>
+       <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_area :address, class: "form-control address", id: "user_address" %>
+      </div>
       <div class="form-group">
         <%= f.submit class: 'btn btn-secondary' %>
       </div>

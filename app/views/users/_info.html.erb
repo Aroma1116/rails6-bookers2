@@ -8,10 +8,60 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <% if user == current_user %>
+  <tr>
+	  <th>postal_code</th>
+	  <th><%= user.postal_code %></th>
+  </tr>
+  <tr>
+	  <th>address</th>
+	  <th><%= user.address %></th>
+  </tr>
+  <% end %>
 </table>
-　
+<% if user == current_user %>
+<script type="text/javascript">
+  function initMap() {
+// #latitude,longitudeから位置を特定
+    var test ={lat: <%= user.latitude %>, lng: <%= user.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= user.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+// #Map上の指定した位置にピンを挿して表示する
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+<!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+<!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+<style type="text/css">
+  #map { height: 200px;
+         width: 100%;}
+</style>
+
+<!--#mapの表示-->
+<div id="map"></div>
+<% end %>
+
 <div class='row'>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block", data: {"turbolinks" => false} do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 </div>

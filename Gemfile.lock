@@ -95,7 +95,16 @@ GEM
     devise-i18n (1.10.3)
       devise (>= 4.8.0)
     diff-lcs (1.5.0)
+<<<<<<< HEAD
     erubi (1.12.0)
+=======
+    digest (3.1.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
+    erubi (1.11.0)
+>>>>>>> 057991a617c6c60eee9ba82ba57fef80eeca8553
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -104,14 +113,24 @@ GEM
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+<<<<<<< HEAD
     globalid (1.1.0)
+=======
+    geocoder (1.8.1)
+    globalid (1.0.0)
+>>>>>>> 057991a617c6c60eee9ba82ba57fef80eeca8553
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+<<<<<<< HEAD
     listen (3.8.0)
+=======
+    jp_prefecture (1.1.1)
+    listen (3.7.1)
+>>>>>>> 057991a617c6c60eee9ba82ba57fef80eeca8553
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.21.3)
@@ -275,10 +294,13 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  dotenv-rails
   devise-i18n
   factory_bot_rails
   faker
+  geocoder
   jbuilder (~> 2.7)
+  jp_prefecture
   listen (~> 3.3)
   net-smtp
   puma (~> 5.0)
